@@ -18,6 +18,11 @@ class Customer
     return films_array.map { |film| Film.new(film)}
   end
 
+  def update
+    sql = "UPDATE customers SET (name, funds) = ('#{@name}', '#{@funds}) WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
   def save
     sql = "INSERT INTO customers (name, funds) VALUES ('#{@name}', #{@funds}) RETURNING *"
     customer = SqlRunner.run(sql).first

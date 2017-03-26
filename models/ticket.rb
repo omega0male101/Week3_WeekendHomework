@@ -19,15 +19,15 @@ class Ticket
     @id = ticket["id"].to_i
   end
 
+  def self.all
+    sql = "SELECT * FROM tickets"
+    ticket = SqlRunner.run(sql)
+    return ticket.map {|all| Ticket.new(all)}
+  end
+
   def self.delete_all
-    sql = "DELETE FROM films"
+    sql = "DELETE FROM tickets"
     SqlRunner.run(sql)
   end
 
 end
-
-
-# save
-# sql = "INSERT INTO tickets (film_id, customer_id) VALUES (#{@film_id}, #{@customer_id} RETURNING *"
-# ticket = SqlRunner.run(sql).first()
-# @id = ticket["id"].to_i

@@ -19,6 +19,20 @@ class Ticket
     @id = ticket["id"].to_i
   end
 
+  def details
+    sql = "SELECT customers.name FROM customers WHERE id = #{@customer_id}"
+    funds = SqlRunner.run(sql).first().fetch("#{@id}").to_i
+    return funds
+  end
+
+  def details1
+    sql = "SELECT c.name, f.title FROM customers AS c INNER JOIN Films AS f ON f.film_id=c.id WHERE c.customer_id= tickets.id"
+  end
+  # SELECT z.predator, p.lifeSpan, z.prey 
+  # FROM Zoo AS z 
+  # INNER JOIN Plants AS p ON p.parent_id=z.id 
+  # WHERE z.preyType=@carnivore
+
   def self.all
     sql = "SELECT * FROM tickets"
     ticket = SqlRunner.run(sql)

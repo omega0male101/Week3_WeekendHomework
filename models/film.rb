@@ -23,6 +23,12 @@ class Film
     SqlRunner.run(sql)
   end
 
+  def price
+    sql = "SELECT films.price FROM films WHERE id = #{@id}"
+    price = SqlRunner.run(sql).first().fetch("price").to_i
+    return price
+  end
+
   def save
     sql = "INSERT INTO films (title, price) VALUES ('#{@title}', #{@price}) RETURNING *"
     film = SqlRunner.run(sql).first

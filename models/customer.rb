@@ -23,6 +23,12 @@ class Customer
     SqlRunner.run(sql)
   end
 
+  def funds
+    sql = "SELECT customers.funds FROM customers WHERE id = #{@id}"
+    funds = SqlRunner.run(sql).first().fetch("funds").to_i
+    return funds
+  end
+
   def save
     sql = "INSERT INTO customers (name, funds) VALUES ('#{@name}', #{@funds}) RETURNING *"
     customer = SqlRunner.run(sql).first

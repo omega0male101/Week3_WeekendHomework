@@ -129,6 +129,11 @@ Ticket.delete_all()
   ticket48 = Ticket.new({"film_id" => film9.id, "customer_id" => customer4.id})
   ticket49 = Ticket.new({"film_id" => film4.id, "customer_id" => customer10.id})
   ticket50 = Ticket.new({"film_id" => film7.id, "customer_id" => customer1.id})
+  ticket51 = Ticket.new({"film_id" => film11.id, "customer_id" => customer20.id})
+  ticket52 = Ticket.new({"film_id" => film9.id, "customer_id" => customer19.id})
+  ticket53 = Ticket.new({"film_id" => film4.id, "customer_id" => customer18.id})
+  ticket54 = Ticket.new({"film_id" => film7.id, "customer_id" => customer17.id})
+  ticket55 = Ticket.new({"film_id" => film2.id, "customer_id" => customer21.id})
 
   ticket1.save
   ticket2.save
@@ -180,6 +185,11 @@ Ticket.delete_all()
   ticket48.save
   ticket49.save
   ticket50.save
+  ticket51.save
+  ticket52.save
+  ticket53.save
+  ticket54.save
+  ticket55.save
 
   binding.pry
   nil
